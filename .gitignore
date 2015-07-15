@@ -1,0 +1,5 @@
+/dist/
+/node_modules/
+/src/js/ga.js
+/src/js/maptiks.js
+/npm-debug.log
