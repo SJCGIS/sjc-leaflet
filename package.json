@@ -4,7 +4,7 @@
   "description": "A web application boilerplate for San Juan County WA web maps based on Leaflet and Esri-Leaflet.",
   "main": "gruntfile.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt build:prod"
   },
   "repository": {
     "type": "git",
