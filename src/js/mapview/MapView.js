@@ -1,5 +1,5 @@
 require('leaflet.markercluster');
-var ClusteredFeatureLayer = require('esri-leaflet-clustered-feature-layer');
+var ClusteredFeatureLayer = require('esri-leaflet-cluster');
 
 L.App = L.App || {};
 

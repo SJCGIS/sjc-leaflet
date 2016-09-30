@@ -1,6 +1,6 @@
 var L = require('leaflet');
 
-require('esri-leaflet');
+L.esri = require('esri-leaflet');
 require('drmonty-leaflet-awesome-markers');
 
 // since leaflet and leaflet-awesome-markers are bundled into the browserify

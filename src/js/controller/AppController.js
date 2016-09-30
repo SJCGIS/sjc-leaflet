@@ -1,5 +1,5 @@
+L.esri.Geocoding = require('esri-leaflet-geocoder');
 require('../mapview/MapView');
-require('esri-leaflet-geocoder');
 require('sidebar-v2/js/leaflet-sidebar');
 var humane = require('humane-js');
 
@@ -21,9 +21,9 @@ L.App.AppController = L.Class.extend({
       position: 'topright'
     }).addTo(this.mapView._map);
 
-    this.searchControl = new L.esri.Geocoding.Controls.Geosearch({
+    this.searchControl = new L.esri.Geocoding.geosearch({
       providers: [
-        new L.esri.Geocoding.Controls.Geosearch.Providers.GeocodeService({
+        new L.esri.Geocoding.geocodeServiceProvider({
           url: 'http://sjcgis.org/arcgis/rest/services/Tools/Polaris_Geolocator/GeocodeServer',
           label: 'Polaris Geocoder',
           proxy: 'http://sjcgis.org/proxy/proxy.ashx'

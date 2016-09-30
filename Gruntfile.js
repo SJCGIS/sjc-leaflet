@@ -113,16 +113,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    purifycss: {
-      options: {
-        info: true
-      },
-      target: {
-        src: ['dist/index.html', 'dist/js/L.App.js'],
-        css: ['dist/css/app.css'],
-        dest: 'dist/css/app_pure.css'
-      }
-    },
     sass: {
       options: {
         style: 'compressed',
@@ -195,7 +185,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-processhtml');
-  grunt.loadNpmTasks('grunt-purifycss');
   grunt.loadNpmTasks('grunt-sass');
 
   // Tasks
@@ -208,7 +197,7 @@ module.exports = function (grunt) {
 
   // CSS
   grunt.registerTask('css:dev', ['copy:css', 'sass']);
-  grunt.registerTask('css:prod', ['copy:css', 'sass', 'purifycss', 'cssmin']);
+  grunt.registerTask('css:prod', ['copy:css', 'sass', 'cssmin']);
 
   // Assets
   grunt.registerTask('assets:dev', ['copy:fonts', 'copy:images']);
