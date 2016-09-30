@@ -22,7 +22,9 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'Firefox'
+      'Firefox',
+      'Chrome',
+      'IE'
     ],
 
     colors: true,
@@ -41,9 +43,7 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
-      'mocha',
-      'chai',
-      'browserify'
+      'browserify', 'tap'
     ],
 
     // level of logging
@@ -52,6 +52,7 @@ module.exports = function(config) {
 
     // preprocessors
     preprocessors: {
+      'test/**/*.js': ['browserify']
     },
 
     // web server port

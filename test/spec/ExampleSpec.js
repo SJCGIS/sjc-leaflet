@@ -1,13 +1,6 @@
-describe("Example", function() {
-  var map;
+var test = require('tape')
 
-  beforeEach(function() {
-    map = new L.Map(document.createElement('div')).setView([0,0], 12);
-  });
-
-  describe('tests', function() {
-    it('should have a test here', function() {
-      expect(1).to.equal(1);
-    });
-  });
-});
+test('tests', function(t) {
+  t.plan(1)
+  t.equal(1, 1)
+})

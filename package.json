@@ -18,7 +18,6 @@
   "homepage": "https://github.com/sjcgis/sjc-leaflet",
   "devDependencies": {
     "browserify": "^10.2.0",
-    "chai": "^2.3.0",
     "connect-livereload": "^0.5.3",
     "drmonty-leaflet-awesome-markers": "^2.0.2",
     "esri-leaflet": "^1.0.0",
@@ -45,16 +44,16 @@
     "humane-js": "^3.2.2",
     "karma": "^0.12.31",
     "karma-browserify": "^4.1.2",
-    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-firefox-launcher": "^0.1.6",
-    "karma-mocha": "^0.1.10",
+    "karma-ie-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^0.1.4",
+    "karma-tap": "^3.0.1",
     "leaflet": "^0.7.3",
     "leaflet.markercluster": "^0.4.0",
-    "mocha": "^2.2.5",
     "node-sass": "^3.1.1",
     "sidebar-v2": "git://github.com/Turbo87/sidebar-v2#v0.2.1",
+    "tap": "^7.1.2",
     "uglify-js": "^2.4.21"
-  },
-  "dependencies": {}
+  }
 }
