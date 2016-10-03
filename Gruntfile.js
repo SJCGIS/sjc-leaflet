@@ -1,10 +1,10 @@
 /*global module:false*/
 
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
+var LIVERELOAD_PORT = 35729
+var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT })
 var mountFolder = function (connect, dir) {
-  return connect['static'](require('path').resolve(dir));
-};
+  return connect['static'](require('path').resolve(dir))
+}
 module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
@@ -87,15 +87,6 @@ module.exports = function (grunt) {
       options: { jshintrc: true },
       all: ['src/js/**/*.js']
     },
-    karma: {
-      'unit': {
-        'options': {
-          'autoWatch': false,
-          'configFile': './karma.conf.js',
-          'singleRun': true
-        }
-      }
-    },
     //Open default browser at the app
     open: {
       dev: { path: 'http://localhost:<%= connect.options.port %>/' },
@@ -123,6 +114,13 @@ module.exports = function (grunt) {
           'dist/css/app.css': 'src/sass/site.scss'
         }
       }
+    },
+    tape: {
+      options: {
+        pretty: true,
+        output: 'console'
+      },
+      files: [ 'test/spec/**/*.js']
     },
     uglify: {
       app: {
@@ -166,51 +164,53 @@ module.exports = function (grunt) {
       },
       tests: {
         files: ['spec/**/*.js'],
-        tasks: ['karma']
+        tasks: ['test']
       },
       livereload: {
-        options: { livereload: LIVERELOAD_PORT }
+        options: {
+          livereload: LIVERELOAD_PORT
+        }
       }
     }
-  });
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-focus');
-  grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-open');
-  grunt.loadNpmTasks('grunt-processhtml');
-  grunt.loadNpmTasks('grunt-sass');
+  })
+  grunt.loadNpmTasks('grunt-browserify')
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-copy')
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
+  grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-focus')
+  grunt.loadNpmTasks('grunt-tape')
+  grunt.loadNpmTasks('grunt-open')
+  grunt.loadNpmTasks('grunt-processhtml')
+  grunt.loadNpmTasks('grunt-sass')
 
   // Tasks
-  grunt.registerTask('hint', ['jshint']);
-  grunt.registerTask('test', ['karma']);
+  grunt.registerTask('hint', ['jshint'])
+  grunt.registerTask('test', ['tape'])
 
   //JS
-  grunt.registerTask('js:dev', ['jshint', 'browserify', 'test']);
-  grunt.registerTask('js:prod', ['browserify', 'uglify', 'test']);
+  grunt.registerTask('js:dev', ['jshint', 'browserify', 'test'])
+  grunt.registerTask('js:prod', ['browserify', 'uglify', 'test'])
 
   // CSS
-  grunt.registerTask('css:dev', ['copy:css', 'sass']);
-  grunt.registerTask('css:prod', ['copy:css', 'sass', 'cssmin']);
+  grunt.registerTask('css:dev', ['copy:css', 'sass'])
+  grunt.registerTask('css:prod', ['copy:css', 'sass', 'cssmin'])
 
   // Assets
-  grunt.registerTask('assets:dev', ['copy:fonts', 'copy:images']);
-  grunt.registerTask('assets:prod', ['copy:fonts', 'copy:images']);
+  grunt.registerTask('assets:dev', ['copy:fonts', 'copy:images'])
+  grunt.registerTask('assets:prod', ['copy:fonts', 'copy:images'])
 
   // Build wrappers
-  grunt.registerTask('build:dev', ['js:dev', 'assets:dev', 'processhtml:dev', 'css:dev']);
-  grunt.registerTask('build:prod', ['js:prod', 'assets:prod', 'processhtml:prod', 'css:prod']);
+  grunt.registerTask('build:dev', ['js:dev', 'assets:dev', 'processhtml:dev', 'css:dev'])
+  grunt.registerTask('build:prod', ['js:prod', 'assets:prod', 'processhtml:prod', 'css:prod'])
   // Serve locally on :8000
-  grunt.registerTask('serve:dev', ['connect:dev', 'open:dev', 'focus:dev']);
-  grunt.registerTask('serve:prod', ['connect:prod', 'open:prod', 'focus:prod']);
+  grunt.registerTask('serve:dev', ['connect:dev', 'focus:dev'])
+  grunt.registerTask('serve:prod', ['connect:prod', 'focus:prod'])
   // Overall build targets... dev and prod.  Default to dev
-  grunt.registerTask('dev', ['build:dev', 'serve:dev']);
-  grunt.registerTask('prod', ['build:prod', 'serve:prod']);
-  grunt.registerTask('default', ['dev']);
-};
+  grunt.registerTask('dev', ['build:dev', 'serve:dev'])
+  grunt.registerTask('prod', ['build:prod', 'serve:prod'])
+  grunt.registerTask('default', ['dev'])
+}

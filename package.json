@@ -4,7 +4,7 @@
   "description": "A web application boilerplate for San Juan County WA web maps based on Leaflet and Esri-Leaflet.",
   "main": "gruntfile.js",
   "scripts": {
-    "test": "grunt build:prod"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -42,17 +42,9 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-focus": "^1.0.0",
     "grunt-gh-pages": "^2.0.0",
-    "grunt-karma": "^2.0.0",
-    "grunt-open": "^0.2.3",
     "grunt-processhtml": "^0.3.7",
     "grunt-sass": "^1.0.0",
-    "karma": "^1.0.0",
-    "karma-browserify": "^4.1.2",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "karma-tap": "^3.0.1",
+    "grunt-tape": "^0.1.0",
     "node-sass": "^3.1.1",
     "tap": "^7.1.2",
     "uglify-js": "^2.4.21"
