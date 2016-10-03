@@ -1,5 +1,8 @@
 /*global module:false*/
 
+var swPrecache = require('sw-precache')
+var path = require('path')
+var packageJson = require('./package.json')
 var LIVERELOAD_PORT = 35729
 var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT })
 var mountFolder = function (connect, dir) {
@@ -32,6 +35,10 @@ module.exports = function (grunt) {
       }
     },
     copy: {
+      main: {
+        src: 'src/service-worker-registration.js',
+        dest: 'dist/service-worker-registration.js'
+      },
       images: {
         cwd: 'node_modules',
         dest: 'dist/img/',
@@ -115,6 +122,12 @@ module.exports = function (grunt) {
         }
       }
     },
+    swPrecache: {
+      prod: {
+        handleFetch: true,
+        rootDir: 'dist'
+      }
+    },
     tape: {
       options: {
         pretty: true,
@@ -173,6 +186,28 @@ module.exports = function (grunt) {
       }
     }
   })
+
+  function writeServiceWorkerFile (rootDir, handleFetch, cb) {
+    var config = {
+      cacheId: packageJson.name,
+      handleFetch: handleFetch,
+      logger: grunt.log.writeIn,
+      staticFileGlobs: [
+        rootDir + '/*.html',
+        rootDir + '/css/app.css',
+        rootDir + '/fonts/**/*.woff2',
+        rootDir + '/img/**/*.+(gif|png|jpg)',
+        rootDir + '/js/*.min.js'
+      ],
+      stripPrefix: rootDir + '/',
+      runtimeCaching: [],
+      verbose: true
+    }
+
+    swPrecache.write(path.join(rootDir, 'service-worker.js'), config, cb)
+  }
+
+
   grunt.loadNpmTasks('grunt-browserify')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-connect')
@@ -197,15 +232,15 @@ module.exports = function (grunt) {
 
   // CSS
   grunt.registerTask('css:dev', ['copy:css', 'sass'])
-  grunt.registerTask('css:prod', ['copy:css', 'sass', 'cssmin'])
+  grunt.registerTask('css:prod', ['copy:css', 'sass'])
 
   // Assets
   grunt.registerTask('assets:dev', ['copy:fonts', 'copy:images'])
-  grunt.registerTask('assets:prod', ['copy:fonts', 'copy:images'])
+  grunt.registerTask('assets:prod', ['copy:fonts', 'copy:images', 'copy:main'])
 
   // Build wrappers
   grunt.registerTask('build:dev', ['js:dev', 'assets:dev', 'processhtml:dev', 'css:dev'])
-  grunt.registerTask('build:prod', ['js:prod', 'assets:prod', 'processhtml:prod', 'css:prod'])
+  grunt.registerTask('build:prod', ['js:prod', 'assets:prod', 'processhtml:prod', 'css:prod', 'swPrecache'])
   // Serve locally on :8000
   grunt.registerTask('serve:dev', ['connect:dev', 'focus:dev'])
   grunt.registerTask('serve:prod', ['connect:prod', 'focus:prod'])
@@ -213,4 +248,17 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', ['build:dev', 'serve:dev'])
   grunt.registerTask('prod', ['build:prod', 'serve:prod'])
   grunt.registerTask('default', ['dev'])
+
+  grunt.registerMultiTask('swPrecache', function () {
+    var done = this.async()
+    var rootDir = this.data.rootDir
+    var handleFetch = this.data.handleFetch
+
+    writeServiceWorkerFile(rootDir, handleFetch, function (err) {
+      if (err) {
+        grunt.fail.warn(err)
+      }
+      done()
+    })
+  })
 }
