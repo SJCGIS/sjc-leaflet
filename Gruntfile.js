@@ -57,15 +57,6 @@ module.exports = function (grunt) {
           src: ['leaflet/dist/leaflet.css'],
           dest: 'node_modules/leaflet/dist/leaflet.scss'
         }]
-      },
-      fonts: {
-        files: [{
-          cwd: 'node_modules',
-          dest: 'dist/fonts/',
-          src: ['font-awesome/fonts/*'],
-          flatten: true,
-          expand: true
-        }]
       }
     },
     cssmin: {
@@ -234,11 +225,11 @@ module.exports = function (grunt) {
   grunt.registerTask('css:prod', ['copy:css', 'sass'])
 
   // Assets
-  grunt.registerTask('assets:dev', ['copy:fonts', 'copy:images'])
-  grunt.registerTask('assets:prod', ['copy:fonts', 'copy:images', 'copy:main'])
+  grunt.registerTask('assets:dev', ['copy:images', 'copy:main'])
+  grunt.registerTask('assets:prod', ['copy:images', 'copy:main'])
 
   // Build wrappers
-  grunt.registerTask('build:dev', ['js:dev', 'assets:dev', 'processhtml:dev', 'css:dev'])
+  grunt.registerTask('build:dev', ['js:dev', 'assets:dev', 'processhtml:dev', 'css:dev', 'swPrecache'])
   grunt.registerTask('build:prod', ['js:prod', 'assets:prod', 'processhtml:prod', 'css:prod', 'swPrecache'])
   // Serve locally on :8000
   grunt.registerTask('serve:dev', ['connect:dev', 'focus:dev'])
