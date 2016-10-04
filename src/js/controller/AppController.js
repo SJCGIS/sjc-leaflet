@@ -25,8 +25,7 @@ L.App.AppController = L.Class.extend({
       providers: [
         new L.esri.Geocoding.geocodeServiceProvider({
           url: 'http://sjcgis.org/arcgis/rest/services/Tools/Polaris_Geolocator/GeocodeServer',
-          label: 'Polaris Geocoder',
-          proxy: 'http://sjcgis.org/proxy/proxy.ashx'
+          label: 'Polaris Geocoder'
         })
       ],
       useArcgisWorldGeocoder: false,
@@ -49,13 +48,6 @@ L.App.AppController = L.Class.extend({
 
     var that = this;
 
-    var locationMarker = L.AwesomeMarkers.icon({
-      icon: 'fa-thumb-tack',
-      prefix: 'fa',
-      markerColor: 'red',
-      iconColor: 'white'
-    });
-
     this.searchControl.on('results', function(data) {
       that.results.clearLayers();
       if(data.results.length === 0){
@@ -63,7 +55,6 @@ L.App.AppController = L.Class.extend({
       } else {
         for(var i = data.results.length - 1; i >= 0; i--) {
           var marker = L.marker(data.results[i].latlng, {
-            icon: locationMarker,
             title: data.results[i].text,
             clickable: true
           });
