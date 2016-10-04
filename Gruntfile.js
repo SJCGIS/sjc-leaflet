@@ -195,7 +195,6 @@ module.exports = function (grunt) {
       staticFileGlobs: [
         rootDir + '/*.html',
         rootDir + '/css/app.css',
-        rootDir + '/fonts/**/*.woff2',
         rootDir + '/img/**/*.+(gif|png|jpg)',
         rootDir + '/js/*.min.js'
       ],
