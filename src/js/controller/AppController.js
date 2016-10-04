@@ -23,9 +23,14 @@ L.App.AppController = L.Class.extend({
 
     this.searchControl = new L.esri.Geocoding.geosearch({
       providers: [
-        new L.esri.Geocoding.geocodeServiceProvider({
-          url: 'http://sjcgis.org/arcgis/rest/services/Tools/Polaris_Geolocator/GeocodeServer',
-          label: 'Polaris Geocoder'
+        new L.esri.Geocoding.mapServiceProvider({
+          url: 'http://sjcgis.org/arcgis/rest/services/Polaris/LocationSearch/MapServer',
+          layers: [4,1,0,2],
+          searchFields: ['FULLADDR', 'Road_Name', 'PIN', 'NAME'],
+          formatSuggestion: function (feature) {
+            var result = feature.properties[feature.layerName] || feature.properties[feature.displayFieldName];
+            return result + ' <small>' + feature.layerName + '</small>';
+          }
         })
       ],
       useArcgisWorldGeocoder: false,
