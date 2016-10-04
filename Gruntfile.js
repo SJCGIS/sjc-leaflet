@@ -15,6 +15,11 @@ module.exports = function (grunt) {
       dist: {
         src: ['src/js/*.js', 'src/js/**/*.js', '!src/js/ga.js', '!src/js/maptiks.js', '!src/js/*.secret.*'],
         dest: 'dist/js/L.App.js'
+      },
+      options: {
+        browserifyOptions: {
+          debug: true
+        }
       }
     },
     connect: {
