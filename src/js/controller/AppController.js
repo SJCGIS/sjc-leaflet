@@ -36,7 +36,11 @@ L.App.AppController = L.Class.extend({
       useArcgisWorldGeocoder: false,
       mapAttribution: null,
       position: 'topright',
-      useMapBounds: false
+      useMapBounds: false,
+      searchBounds: new L.latLngBounds(
+        [48.403679, -123.276215],
+        [48.807768, -122.731018]
+      )
     }).addTo(this.mapView._map);
 
     this.sidebar = new L.control.sidebar('sidebar').addTo(this.mapView._map);
