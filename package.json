@@ -2,51 +2,60 @@
   "name": "sjc-leaflet",
   "version": "0.1.0",
   "description": "A web application boilerplate for San Juan County WA web maps based on Leaflet and Esri-Leaflet.",
-  "main": "gruntfile.js",
+  "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "start": "budo index.js --serve bundle.js -- --standalone sjcLeaflet",
+    "test": "standard && lerna run test",
+    "prepublish": "lerna bootstrap && npm run build",
+    "build": "browserify --standalone sjcLeaflet index.js > sjc-leaflet.js && uglifyjs sjc-leaflet.js -c -m > sjc-leaflet.min.js"
   },
+  "files": [
+    "index.js",
+    "sjc-leaflet.js",
+    "sjc-leaflet.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/sjcgis/sjc-leaflet"
   },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "sjc-leaflet.js",
+      "sjc-leaflet.min.js"
+    ]
+  },
+  "keywords": [
+    "leaflet",
+    "san juan county",
+    "map",
+    "gis"
+  ],
   "author": "Nick Peihl",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/sjcgis/sjc-leaflet/issues"
+    "url": "https://github.com/sjcgis/sjc-leaflet/issues",
+    "email": "sjcgis@sanjuanco.com"
   },
   "homepage": "https://github.com/sjcgis/sjc-leaflet",
-  "dependencies": {
-    "esri-leaflet": "^2.0.0",
-    "esri-leaflet-cluster": "^2.0.0",
-    "esri-leaflet-geocoder": "^2.0.0",
-    "font-awesome": "^4.3.0",
-    "humane-js": "^3.2.2",
-    "leaflet": "^1.0.1",
-    "leaflet.markercluster": "^0.4.0",
-    "sidebar-v2": "git://github.com/Turbo87/sidebar-v2"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "babelify": "^7.3.0",
     "browserify": "^13.0.0",
-    "connect-livereload": "^0.5.3",
-    "grunt": "^1.0.0",
-    "grunt-browserify": "^5.0.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-concat": "^1.0.0",
-    "grunt-contrib-connect": "^1.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-focus": "^1.0.0",
-    "grunt-gh-pages": "^2.0.0",
-    "grunt-processhtml": "^0.3.7",
-    "grunt-sass": "^1.0.0",
-    "grunt-tape": "^0.1.0",
-    "node-sass": "^3.1.1",
-    "sw-precache": "^4.1.0",
-    "tap": "^7.1.2",
-    "uglify-js": "^2.4.21"
+    "budo": "^9.2.1",
+    "lerna": "2.0.0-beta.30",
+    "standard": "^8.5.0",
+    "uglify-js": "^2.7.4"
   }
 }

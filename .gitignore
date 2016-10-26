@@ -1,5 +1,5 @@
-/dist/
-/node_modules/
-/src/js/ga.js
-/src/js/maptiks.js
-/npm-debug.log
+node_modules/
+npm-debug.log
+sjc-leaflet.js
+sjc-leaflet.min.js
+lerna-debug.log
