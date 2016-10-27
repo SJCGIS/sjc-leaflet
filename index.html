@@ -5,7 +5,7 @@
         <title>San Juan County Leaflet Map</title>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
-        <script src="sjc-leaflet.js"></script>
+        <script src="bundle.js"></script>
         <style>
          body {
              padding: 0;
@@ -22,7 +22,8 @@
         <div id="map"></div>
         <script>
          var map = sjcLeaflet.map('map', {
-             zoom: 14
+             zoom: 14,
+             center: [48.535377, -123.015246]
          })
          var imageryLayer = sjcLeaflet.basemaps.defaultImageryReference().addTo(map)
          var streetLayer = sjcLeaflet.basemaps.defaultVector()
@@ -31,6 +32,7 @@
              'Streets': streetLayer
          }).addTo(map)
          var locationControl = sjcLeaflet.locationControl().addTo(map)
+         var scale = L.control.scale().addTo(map)
         </script>
     </body>
 </html>
