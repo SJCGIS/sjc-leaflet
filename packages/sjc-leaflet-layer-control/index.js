@@ -1,6 +1,6 @@
 /* global L */
 
-const baseMaps = require('../../sjc-leaflet-basemaps')
+const baseMaps = require('sjc-leaflet-basemaps')
 
 /**
  * Leaflet layer control with defaults for San Juan County WA
