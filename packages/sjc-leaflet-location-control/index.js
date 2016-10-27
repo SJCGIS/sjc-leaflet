@@ -24,7 +24,7 @@ module.exports = () => {
     }]
   })
 
-  locateButton.button.style.fontSize = '2.0em'
+  locateButton.button.style.fontSize = '22px'
 
   function locateUser (button, map) {
     this.map = map
