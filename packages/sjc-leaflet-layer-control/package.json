@@ -4,7 +4,7 @@
   "description": "A default layer control for Leaflet maps in San Juan County WA",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test.js | tape-run"
+    "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "keywords": [
     "leaflet",
@@ -34,8 +34,10 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
     "babelify": "^7.3.0",
+    "faucet": "0.0.1",
     "leaflet": "^1.0.1",
-    "tape": "^4.6.2",
-    "tape-run": "^2.1.4"
+    "smokestack": "^3.4.1",
+    "tap-closer": "^1.0.0",
+    "tape": "^4.6.2"
   }
 }

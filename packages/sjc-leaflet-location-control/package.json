@@ -4,7 +4,7 @@
   "description": "A button to toggle a layer showing the user's location",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test.js | tape-run"
+    "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "browserify": {
     "transform": [
@@ -35,9 +35,11 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
     "babelify": "^7.3.0",
+    "faucet": "0.0.1",
     "leaflet": "^1.0.1",
     "sheetify": "^5.1.1",
-    "tape": "^4.6.2",
-    "tape-run": "^2.1.4"
+    "smokestack": "^3.4.1",
+    "tap-closer": "^1.0.0",
+    "tape": "^4.6.2"
   }
 }
