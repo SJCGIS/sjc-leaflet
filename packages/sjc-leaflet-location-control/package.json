@@ -30,6 +30,7 @@
   "author": "Nick Peihl <nickpeihl@gmail.com> (http://npeihl.com/)",
   "license": "Apache-2.0",
   "dependencies": {
+    "geomicons-open": "^2.0.0",
     "leaflet-easybutton": "git://github.com/nickpeihl/Leaflet.EasyButton.git#leafletv1"
   },
   "devDependencies": {
