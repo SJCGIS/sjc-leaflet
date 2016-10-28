@@ -77,7 +77,7 @@ module.exports = (options) => {
     } else {
       this.state('follow-me')
       const rad = e.accuracy / 2
-      this.marker.setLatLng(e.latlng)
+      this.marker.setLatLng(e.latlng).bindPopup(`${e.latlng.lat}, ${e.latlng.lng} (+/-${Math.round(e.accuracy)}m)`)
       this.circle.setLatLng(e.latlng)
       this.circle.setRadius(rad)
       this.layers.addTo(this.map)
