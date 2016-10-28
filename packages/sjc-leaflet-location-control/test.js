@@ -1,9 +1,9 @@
 require('leaflet')
 const tape = require('tape')
-const layerControl = require('./')
+const locationControl = require('./')
 
-tape.test('default layer control', function (t) {
+tape.test('default location control', function (t) {
   t.plan(1)
-  const defControl = layerControl()
+  const defControl = locationControl()
   t.ok(defControl, 'default location control ok')
 })
