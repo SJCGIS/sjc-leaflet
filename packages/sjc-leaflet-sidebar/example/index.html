@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Default Map</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+
+        <style>
+         body {
+             padding: 0;
+             margin: 0;
+         }
+         html, body, #map {
+             height: 100vh;
+             width: 100vw;
+         }
+         /* Images from Geomicons http://geomicons.com */
+         .tab::before {
+             content: '';
+             display: inline-block;
+             background-size: 1em;
+             width: 1em;
+             height: 1em;
+         }
+         .tab-home:before {
+             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='black'><path d='M16 0 L32 16 L28 16 L28 30 L20 30 L20 20 L12 20 L12 30 L4 30 L4 16 L0 16 Z'></path></svg>");;
+         }
+        </style>
+    </head>
+    <body>
+
+        <div id='map'></div>
+
+        <script src='main.js'></script>
+
+    </body>
+</html>
