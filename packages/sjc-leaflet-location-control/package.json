@@ -4,6 +4,7 @@
   "description": "A button to toggle a layer showing the user's location",
   "main": "index.js",
   "scripts": {
+    "prepublish": "browserify index.js > sjc-leaflet-location-control.js && uglifyjs sjc-leaflet-location-control.js -c -m > sjc-leaflet-location-control.min.js",
     "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "browserify": {
@@ -41,6 +42,7 @@
     "sheetify": "^5.1.1",
     "smokestack": "^3.4.1",
     "tap-closer": "^1.0.0",
-    "tape": "^4.6.2"
+    "tape": "^4.6.2",
+    "uglifyjs": "^2.4.10"
   }
 }

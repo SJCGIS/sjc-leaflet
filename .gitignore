@@ -3,3 +3,13 @@ npm-debug.log
 sjc-leaflet.js
 sjc-leaflet.min.js
 lerna-debug.log
+/packages/sjc-leaflet-basemaps/sjc-leaflet-basemaps.js
+/packages/sjc-leaflet-basemaps/sjc-leaflet-basemaps.min.js
+/packages/sjc-leaflet-layer-control/sjc-leaflet-layer-control.js
+/packages/sjc-leaflet-layer-control/sjc-leaflet-layer-control.min.js
+/packages/sjc-leaflet-location-control/sjc-leaflet-location-control.js
+/packages/sjc-leaflet-location-control/sjc-leaflet-location-control.min.js
+/packages/sjc-leaflet-map/sjc-leaflet-map.js
+/packages/sjc-leaflet-map/sjc-leaflet-map.min.js
+/packages/sjc-leaflet-sidebar/sjc-leaflet-sidebar.js
+/packages/sjc-leaflet-sidebar/sjc-leaflet-sidebar.min.js

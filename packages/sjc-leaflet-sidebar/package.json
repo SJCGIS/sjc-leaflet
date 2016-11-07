@@ -4,6 +4,7 @@
   "description": "A sidebar customized for San Juan County WA",
   "main": "index.js",
   "scripts": {
+    "prepublish": "browserify index.js > sjc-leaflet-sidebar.js && uglifyjs sjc-leaflet-sidebar.js -c -m > sjc-leaflet-sidebar.min.js",
     "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "browserify": {
@@ -36,7 +37,8 @@
     "sheetify": "^5.1.2",
     "smokestack": "^3.4.1",
     "tap-closer": "^1.0.0",
-    "tape": "^4.6.2"
+    "tape": "^4.6.2",
+    "uglifyjs": "^2.4.10"
   },
   "dependencies": {
     "bel": "^4.5.0",
