@@ -7,6 +7,7 @@
     "start": "budo index.js --serve bundle.js -- --standalone sjcLeaflet",
     "test": "standard && lerna run test",
     "prepublish": "lerna bootstrap && npm run build",
+    "postinstall": "lerna boostrap",
     "build": "browserify --standalone sjcLeaflet index.js > sjc-leaflet.js && uglifyjs sjc-leaflet.js -c -m > sjc-leaflet.min.js"
   },
   "files": [
