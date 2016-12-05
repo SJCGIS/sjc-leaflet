@@ -4,7 +4,7 @@
   "description": "Available basemaps for San Juan County WA",
   "main": "index.js",
   "scripts": {
-    "prepublish": "browserify index.js > sjc-leaflet-basemaps.js && uglifyjs sjc-leaflet-basemaps.js -c -m > sjc-leaflet-basemaps.min.js",
+    "prepublish": "browserify --standalone sjcLeafletBasemaps index.js > sjc-leaflet-basemaps.js && uglifyjs sjc-leaflet-basemaps.js -c -m > sjc-leaflet-basemaps.min.js",
     "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "keywords": [
