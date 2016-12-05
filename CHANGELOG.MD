@@ -1,6 +1,20 @@
 # Change Log
 Al notable changes to sjc-leaflet web application will be documented in this file. Corrections to the basemaps may not be reflected here. This project adheres to [Semantic Versioning](http://semver.org).
 
+## Unreleased
+
+### Added
+- Packages can be used as standalone UMD bundles
+
+## 1.1.0 - 2016-12-02
+### Added
+- sjc-leaflet-map module
+- sjc-leaflet-basemaps module
+- sjc-leaflet-layer-control module
+- sjc-leaflet-location-control module
+- sjc-leaflet-sidebar module
+
+## 1.0.0 - [YANKED]
 
 ## 0.1.0 - 2015-07-15
 
