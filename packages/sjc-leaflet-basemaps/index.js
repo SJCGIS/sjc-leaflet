@@ -1,6 +1,6 @@
 /**
  * San Juan County Leaflet Basemaps
- * @name basemaps
+ * @name sjcLeafletBasemaps
 */
 
 /** Default vector basemap */
