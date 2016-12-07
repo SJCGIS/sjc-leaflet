@@ -1,6 +1,6 @@
 {
   "name": "sjc-leaflet-location-control",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A button to toggle a layer showing the user's location",
   "main": "index.js",
   "browser": "sjc-leaflet-location-control.min.js",

@@ -1,6 +1,6 @@
 {
   "name": "sjc-leaflet-map",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Default Leaflet map for San Juan County WA",
   "main": "index.js",
   "browser": "sjc-leaflet-map.min.js",
