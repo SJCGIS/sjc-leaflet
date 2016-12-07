@@ -2,7 +2,7 @@
 
 /**
  * San Juan County Leaflet Map
- * @name map
+ * @name sjcLeafletMap
  * @param {(string|HTMLElement)} id HTML element or id of HTML element to attach map
  * @param {object} opts Leaflet map options
  * @param {array} [opts.center=[48.5,-123.0]] starting center of map

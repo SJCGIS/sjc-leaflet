@@ -8,9 +8,9 @@ sf('./css/main.css', { global: true })
 
 /**
  * Location control button
- * @name locationControl
+ * @name sjcLeafletLocationControl
  * @example
- * var locationControl = sjcLeaflet.locationControl()
+ * var locationControl = sjcLeafletLocationControl()
  * locationControl.addTo(map)
  */
 
