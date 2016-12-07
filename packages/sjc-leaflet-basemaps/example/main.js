@@ -1,8 +1,8 @@
 require('leaflet')
-var SjcMap = require('sjc-leaflet-map')
-var baseMaps = require('../')
+var sjcLeafletMap = require('sjc-leaflet-map')
+var sjcLeafletBaseMaps = require('../')
 
-var base = baseMaps.defaultImageryReference()
-var map = SjcMap('map')
+var base = sjcLeafletBaseMaps.defaultImageryReference()
+var map = sjcLeafletMap('map')
 
 base.addTo(map)

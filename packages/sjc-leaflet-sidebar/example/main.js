@@ -1,23 +1,23 @@
 require('leaflet')
-var SjcMap = require('../../sjc-leaflet-map')
-var baseMaps = require('../../sjc-leaflet-basemaps')
-var SjcSidebar = require('../')
+var sjcLeafletMap = require('../../sjc-leaflet-map')
+var sjcLeafletBasemaps = require('../../sjc-leaflet-basemaps')
+var sjcLeafletSidebar = require('../')
 
-var base = baseMaps.defaultImageryReference()
+var base = sjcLeafletBasemaps.defaultImageryReference()
 
 var content = `
 <h1>sjc-leaflet-sidebar</h1>
 <p>This is a customizable sidebar for Leaflet maps. It is a wrapper for the leaflet-sidebar-v2 library but may include some custom defaults for use in San Juan County WA.</p>
 `
 
-var map = SjcMap('map', {
+var map = sjcLeafletMap('map', {
   layers: [base],
   zoom: 13,
   center: [48.699119, -122.905426],
   zoomControl: false
 })
 
-var sidebar = SjcSidebar('sidebar')
+var sidebar = sjcLeafletSidebar('sidebar')
 sidebar.addTo(map)
 
 sidebar.addPanel({

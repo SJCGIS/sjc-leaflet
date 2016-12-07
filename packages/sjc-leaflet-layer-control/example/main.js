@@ -1,19 +1,19 @@
 require('leaflet')
-var SjcMap = require('../../sjc-leaflet-map')
-var baseMaps = require('../../sjc-leaflet-basemaps')
-var LayerControl = require('../')
+var sjcLeafletMap = require('sjc-leaflet-map')
+var sjcLeafletBaseMaps = require('sjc-leaflet-basemaps')
+var sjcLeafletLayerControl = require('../')
 
-var map = SjcMap('map', {
+var map = sjcLeafletMap('map', {
   zoom: 12
 })
 
-var layer = baseMaps.defaultVector()
+var layer = sjcLeafletBaseMaps.defaultVector()
 
 map.addLayer(layer)
 
-var layerControl = LayerControl({
+var layerControl = sjcLeafletLayerControl({
   'Streets': layer,
-  'Imagery': baseMaps.defaultImageryReference()
+  'Imagery': sjcLeafletBaseMaps.defaultImageryReference()
 })
 
 layerControl.addTo(map)

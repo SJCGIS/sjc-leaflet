@@ -1,13 +1,13 @@
 require('leaflet')
-var SjcMap = require('../../sjc-leaflet-map')
-var baseMaps = require('../../sjc-leaflet-basemaps')
-var LocateControl = require('../')
+var sjcLeafletMap = require('sjc-leaflet-map')
+var sjcLeafletBaseMaps = require('sjc-leaflet-basemaps')
+var sjcLeafletLocationControl = require('../')
 
-var map = SjcMap('map', {
+var map = sjcLeafletMap('map', {
   zoom: 13
 })
 
-map.addLayer(baseMaps.defaultImageryReference())
+map.addLayer(sjcLeafletBaseMaps.defaultImageryReference())
 
-var locate = LocateControl()
+var locate = sjcLeafletLocationControl()
 locate.addTo(map)
