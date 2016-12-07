@@ -1,8 +1,7 @@
 # Change Log
 Al notable changes to sjc-leaflet web application will be documented in this file. Corrections to the basemaps may not be reflected here. This project adheres to [Semantic Versioning](http://semver.org).
 
-## Unreleased
-
+## 1.2.0 - 2016-12-07
 ### Added
 - Packages can be used as standalone UMD bundles
 
