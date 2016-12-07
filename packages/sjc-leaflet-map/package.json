@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Default Leaflet map for San Juan County WA",
   "main": "index.js",
+  "browser": "sjc-leaflet-map.min.js",
   "scripts": {
     "prepublish": "browserify --standalone sjcLeafletMap index.js > sjc-leaflet-map.js && uglifyjs sjc-leaflet-map.js -c -m > sjc-leaflet-map.min.js",
     "test": "browserify test.js | tap-closer | smokestack | faucet"

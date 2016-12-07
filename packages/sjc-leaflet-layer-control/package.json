@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "A default layer control for Leaflet maps in San Juan County WA",
   "main": "index.js",
+  "browser": "sjc-leaflet-layer-control.min.js",
   "scripts": {
     "prepublish": "browserify --standalone sjcLeafletLayerControl index.js > sjc-leaflet-layer-control.js && uglifyjs sjc-leaflet-layer-control.js -c -m > sjc-leaflet-layer-control.min.js",
     "test": "browserify test.js | tap-closer | smokestack | faucet"
