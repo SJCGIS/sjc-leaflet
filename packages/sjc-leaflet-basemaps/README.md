@@ -2,6 +2,8 @@
 
 Available basemaps for San Juan County WA
 
+Each accepts all the same options as [L.tileLayer](http://leafletjs.com/reference-1.0.2.html#tilelayer)
+
 ## Example
 
 Standalone usage
@@ -29,12 +31,12 @@ Using [Browserify](http://browserify.org)
 ``` javascript
 # in main.js
 var L = require('leaflet')
-var sjcMap = require('sjc-leaflet-map')
-var sjcBasemaps = require('sjc-leaflet-basemaps')
+var sjcLeafletMap = require('sjc-leaflet-map')
+var sjcLeafletBasemaps = require('sjc-leaflet-basemaps')
 
-var map = sjcMap('map') # <div id='map'></div> must be in index.html
+var map = sjcLeafletMap('map') # <div id='map'></div> must be in index.html
 
-var layer = sjcBasemaps.defaultVector()
+var layer = sjcLeafletBasemaps.defaultVector()
 layer.addTo(map)
 ```
 
@@ -42,6 +44,11 @@ layer.addTo(map)
 With [npm](https://npmjs.org) do:
 ``` shell
 npm install sjc-leaflet-basemaps
+```
+
+In browser use:
+``` html
+<script src="https://unpkg.com/sjc-leaflet-basemaps"></script>
 ```
 
 ## Usage
