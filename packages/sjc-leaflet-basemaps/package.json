@@ -1,6 +1,6 @@
 {
   "name": "sjc-leaflet-basemaps",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Available basemaps for San Juan County WA",
   "main": "index.js",
   "scripts": {
