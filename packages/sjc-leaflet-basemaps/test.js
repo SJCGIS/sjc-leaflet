@@ -1,6 +1,6 @@
 require('leaflet')
 const tape = require('tape')
-const sjcLeafletBasemaps = require('./index')
+const sjcLeafletBasemaps = require('./')
 
 tape.test('defined single tile layer basemap', function (t) {
   t.plan(3)
