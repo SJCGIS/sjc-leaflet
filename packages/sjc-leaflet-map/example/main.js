@@ -7,5 +7,5 @@ var map = sjcLeafletMap('map', {
   zoom: 15
 })
 
-var baseLayer = sjcLeafletBasemaps.defaultImageryReference()
+var baseLayer = sjcLeafletBasemaps('defaultRaster')
 baseLayer.addTo(map)

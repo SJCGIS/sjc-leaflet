@@ -7,7 +7,7 @@ var map = sjcLeafletMap('map', {
   zoom: 13
 })
 
-map.addLayer(sjcLeafletBaseMaps.defaultImageryReference())
+map.addLayer(sjcLeafletBaseMaps('defaultRaster'))
 
 var locate = sjcLeafletLocationControl()
 locate.addTo(map)

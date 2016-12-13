@@ -7,13 +7,13 @@ var map = sjcLeafletMap('map', {
   zoom: 12
 })
 
-var layer = sjcLeafletBaseMaps.defaultVector()
+var layer = sjcLeafletBaseMaps('defaultVector')
 
 map.addLayer(layer)
 
 var layerControl = sjcLeafletLayerControl({
   'Streets': layer,
-  'Imagery': sjcLeafletBaseMaps.defaultImageryReference()
+  'Imagery': sjcLeafletBaseMaps('defaultRaster')
 })
 
 layerControl.addTo(map)
