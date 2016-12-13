@@ -11,15 +11,16 @@ Using Standalone
   <title>My Map</title>
   <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <style> html, body, #map { width: 100vw; height: 100vh; } </style>
   </head>
   <body>
     <div id='map'></div>
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/sjc-leaflet-map"></script>
-    <script src="https://unpkg.com/sjc-leaflet-basemaps"></script>
+    <script src="https://unpkg.com/sjc-leaflet-map@latest/sjc-leaflet-map.min.js"></script>
+    <script src="https://unpkg.com/sjc-leaflet-basemaps@latest/sjc-leaflet-basemaps.min.js"></script>
     <script>
       var map = sjcLeafletMap()
-      var layer = sjcLeafletBasemaps.defaultVector()
+      var layer = sjcLeafletBasemaps('defaultVector')
       layer.addTo(map)
     </script>
   </body>
@@ -30,12 +31,12 @@ Using [Browserify](http://browserify.org)
 ``` javascript
 # in main.js
 var L = require('leaflet')
-var sjcMap = require('sjc-leaflet-map')
-var sjcBasemaps = require('sjc-leaflet-basemaps')
+var sjcLeafletMap = require('sjc-leaflet-map')
+var sjcLeafletBasemaps = require('sjc-leaflet-basemaps')
 
-var map = sjcMap('map') # <div id='map'></div> must be in index.html
+var map = sjcLeafletMap('map') # <div id='map'></div> must be in index.html
 
-var layer = sjcBasemaps.defaultVector()
+var layer = sjcLeafletBasemaps('defaultVector')
 layer.addTo(map)
 ```
 
