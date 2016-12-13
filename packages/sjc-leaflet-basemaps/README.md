@@ -12,15 +12,16 @@ Standalone usage
   <title>My Map</title>
   <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <style> html, body, #map { width: 100vw; height: 100vh; } </style>
   </head>
   <body>
     <div id='map'></div>
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/sjc-leaflet-map"></script>
-    <script src="https://unpkg.com/sjc-leaflet-basemaps"></script>
+    <script src="https://unpkg.com/sjc-leaflet-map@latest/sjc-leaflet-map.min.js"></script>
+    <script src="https://unpkg.com/sjc-leaflet-basemaps@latest/sjc-leaflet-basemaps.min.js"></script>
     <script>
       var map = sjcLeafletMap()
-      var layer = sjcLeafletBasemaps.defaultVector()
+      var layer = sjcLeafletBasemaps('defaultVector')
       layer.addTo(map)
     </script>
   </body>
@@ -36,7 +37,7 @@ var sjcLeafletBasemaps = require('sjc-leaflet-basemaps')
 
 var map = sjcLeafletMap('map') # <div id='map'></div> must be in index.html
 
-var layer = sjcLeafletBasemaps.defaultVector()
+var layer = sjcLeafletBasemaps('defaultVector')
 layer.addTo(map)
 ```
 
@@ -48,13 +49,20 @@ npm install sjc-leaflet-basemaps
 
 In browser use:
 ``` html
-<script src="https://unpkg.com/sjc-leaflet-basemaps"></script>
+<script src="https://unpkg.com/sjc-leaflet-basemaps@latest/sjc-leaflet-basemaps.min.js"></script>
 ```
 
 ## Usage
 ``` javascript
-var vectorLayer = sjcLeafletBasemaps.defaultVectorLayer()
-var imageryLayer = sjcLeafletBasemaps.defaultImageryLayer()
-var imageryRefLayer = sjcLeafletBasemaps.defaultImageryReference()
-
+var vectorLayer = sjcLeafletBasemaps('defaultVector')
+var imageryLayer = sjcLeafletBasemaps('imagery2016')
+var imageryRefLayer = sjcLeafletBasemaps('defaultRaster')
+var customLayer = sjcLeafletBasemaps({
+  url: 'http://example.com/myTileLayer/{z}/{x}/{y}.png',
+  options: {
+    maxZoom: 12,
+    minZoom: 8,
+    attribution: 'Example Inc.'
+  }
+})
 ```
