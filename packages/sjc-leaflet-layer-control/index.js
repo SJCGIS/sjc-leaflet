@@ -11,21 +11,21 @@ const baseMaps = require('sjc-leaflet-basemaps')
  * @see {@link http://leafletjs.com/reference-1.0.0.html#control-layers|Leaflet Documentation}
  * @example
  * var layerControl = sjcLeafletLayerControl({
- *   "Imagery": sjcLeafletBasemaps.defaultImageryReference(),
- *   "Streets": sjcLeafletBasemaps.defaultVector()
+ *   "Imagery": sjcLeafletBasemaps('defaultRaster'),
+ *   "Streets": sjcLeafletBasemaps('defaultVector')
  * }).addTo(map)
 */
 module.exports = (base, over, opts) => {
   const options = opts || {}
   const baseLayers = base || {
-    'Streets': baseMaps.defaultVector(),
-    'Imagery': baseMaps.defaultImageryReference(),
-    'Imagery Only': baseMaps.defaultImagery()
+    'Streets': baseMaps('defaultVector'),
+    'Imagery': baseMaps('defaultRaster'),
+    'Imagery Only': baseMaps('imagery2016')
   }
 
   const overlays = over || {}
   const control = L.control.layers(baseLayers,
-                                       overlays,
-                                       options)
+                                   overlays,
+                                   options)
   return control
 }
